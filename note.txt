@@ -1,0 +1,90 @@
+synchronous===order
+asynchronous===not order
+
+in js have asynchronous and synchronous code
+synchronous code is read first and asynchronous is read last
+asynchronous code is delay the code
+
+javascript runtime
+-------------------
+1.call stack   
+--------
+---------
+lifo order--last in first out
+push-add
+pop-delete
+
+2.call queue
+-----------
+-----------
+fifo order--first in first out
+enqueue
+dequeue
+
+3.memory
+-------
+-------
+memory contain synchronous and asynchronouscode // conosole.lo(1),,,,settimeout,,,api
+
+working
+--------
+
+the memory contain asynchronous and synchromous code. the synchronous code in the memory take first
+ and move to the call stack and print output.and then the asynchronouscode is move to call queue.if the call 
+ stack is empty by printing the synchronouscode atlast asynchronous code is print.synchronous is first print and asynchronous print last.
+
+API CALLS in js
+---------------
+
+promise=service in js used to resolven asynchronous codes
+ajax=asynchronous js and xml
+      used to call API
+xmlhttps=more steps to check
+          it is a class
+          complicated
+ fetch()=one step to check
+         simplest
+
+
+promise
+=======
+resolve-then(
+ reject-catch()   
+)
+
+
+
+    function searchData(){
+        country=cname.value
+        fetch(`https://restcountries.com/v2/name/${country}?fullText=true`).then(data=>data.json())
+        .then(outdata=>displayData(outdata))
+        function displayData(data){
+            image=data[0].flag
+            name=data[0].name
+            capital=data[0].capital
+            population=data[0].population
+            currencyname=data[0].currencies[0].name
+            currencysymbol=data[0].currencies[0].symbol
+            language=data[0].languages[0].nativeName
+
+            result.innerHTML=`
+            <div class="card" style="width: 18rem;">
+  <img src=${image} class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${name}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">capital ${capital}</li>
+    <li class="list-group-item">population ${population}</li>
+    <li class="list-group-item">currency ${currencyname}</li>
+    <li class="list-group-item">symbol ${currencysymbol}</li>
+    <li class="list-group-item">language ${language}</li>
+
+  </ul>
+//   <div class="card-body">
+//     <a href="#" class="card-link">Card link</a>
+//     <a href="#" class="card-link">Another link</a>
+//   </div>
+</div>`
+        }
+    }
